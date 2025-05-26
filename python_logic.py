@@ -99,6 +99,33 @@ There are 3 types of variables are allowed.
 #         print(res,self.instance_var,test.static_var)
 # a=test(10)
 # a.call(20)
+
+#access modfier methods
+# class Car:
+#     def start_engine(self):          # Public method
+#         print("Engine started.")
+#
+#     def _check_oil(self):            # Protected method (convention)
+#         print("Oil level is good.")
+#
+#     def __fuel_injector_status(self):  # Private method
+#         print("Fuel injector is working fine.")
+#
+#     def service(self):               # Public method calling private one
+#         self._check_oil()
+#         self.__fuel_injector_status()
+#         print("Car serviced.")
+#
+# c = Car()
+#
+# c.start_engine()         # ✅ Public method: works fine
+# c._check_oil()           # ⚠️ Protected method: works, but should not be used outside
+# c.service()              # ✅ Calls private and protected methods internally
+#
+# c.__fuel_injector_status()  # ❌ Private method: Error (AttributeError)
+
+
+
 #---------------------------------------------------------------------------------------------------
 # Types of method
 # 1) Instance Methods
@@ -360,9 +387,9 @@ follows."""
 # class Fruit:
 #     @abstractmethod
 #     def taste(self):
-#         print("SS")
+#         pass
 # a=Fruit()
-# a.taste()
+# print(a.taste())
 
 """Abstract class:
 Some times implementation of a class is not complete,such type of partially
@@ -411,7 +438,7 @@ Abstract classes cannot be instantiated directly."""
 # | **Static Method**   | ✅ Yes     | Yes ✅                 |
 
 #---------------------------------------------------------------------------------------------------------------
-#interface
+
 
 """First: Abstract Class in Python
 An abstract class is a class that:
@@ -438,7 +465,7 @@ Is used to provide common behavior + enforce rules
 # d.sound()      # Output: Bark
 # d.sleep()      # Output: Sleeping...
 
-
+#interface
 """Second: Interface in Python (using Abstract Class with ONLY Abstract Methods)
 An interface is:
 A class with only abstract methods
@@ -494,25 +521,25 @@ cannot access. We can declare a variable as private explicitly by prefexing with
 underscore symbols.
 syntax: __variablename=value"""
 
-class Person:
-    def __init__(self, name, age, salary):
-        self.name = name           # public
-        self._age = age            # protected (by convention)
-        self.__salary = salary     # private (name mangling)
-    def display(self):
-        print("Name:", self.name)
-        print("Age:", self._age)
-        print("Salary:", self.__salary)
-p = Person("Alice", 30, 50000)
-# Accessing public attribute
-print(p.name)        # ✅ Accessible
-# Accessing protected attribute
-print(p._age)        # ⚠️ Accessible but should be treated as protected
-# Accessing private attribute
-# print(p.__salary)  ❌ Error: AttributeError
-# Correct way to access private variable (if needed)
-print(p._Person__salary)  # ✅ Name mangling allows access
-
+# class Person:
+#     def __init__(self, name, age, salary):
+#         self.name = name           # public
+#         self._age = age            # protected (by convention)
+#         self.__salary = salary     # private (name mangling)
+#     def display(self):
+#         print("Name:", self.name)
+#         print("Age:", self._age)
+#         print("Salary:", self.__salary)
+# p = Person("Alice", 30, 50000)
+# # Accessing public attribute
+# print(p.name)        # ✅ Accessible
+# # Accessing protected attribute
+# print(p._age)        # ⚠️ Accessible but should be treated as protected
+# # Accessing private attribute
+# # print(p.__salary)  ❌ Error: AttributeError
+# # Correct way to access private variable (if needed)
+# print(p._Person__salary)  # ✅ Name mangling allows access
+#
 
 # Example of Protected Attributes
 # class Animal:
@@ -586,7 +613,21 @@ print(p._Person__salary)  # ✅ Name mangling allows access
 
 
 #---------------------------------------------------------------------------------------------------------------
-
+# def findEvenNumbers(digits):
+#     res = []
+#     count = 0
+#     for i in range(len(digits)):
+#         count = 0
+#         for j in range(i, i+3):
+#             if digits[i] != 0:
+#                 print(digits[j])
+#                 count = count * 10 + digits[j]
+#         print("")
+#         res.append(count)
+#     #return res
+#
+# findEvenNumbers([2,1,3,0])
+#print(*a)
 #---------------------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------------------#---------------------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------------------#---------------------------------------------------------------------------------------------------------------
