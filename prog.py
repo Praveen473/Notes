@@ -249,5 +249,290 @@ from logging import exception
 #     print(a[i])
 # print(a[::-1])
 #__________________________________________________________________________________________________________________
+#building graph
 
-#_______________________________________________________________________________________________________________
+# from collections import deque
+# class graph:
+#     def bfs(self,g,start):
+#         visited=set()
+#         queue=deque([start])
+#         print(queue)
+#         visited.add(start)
+#         while queue:
+#             que=queue.popleft()
+#             for nei in g[que]:
+#                 if nei not in visited:
+#                     visited.add(nei)
+#                     queue.append(nei)
+#         print("BFS\n")
+#         print(*visited)
+#
+#     def dfs(self,g,start,vis=None):
+#         if vis is None:
+#             vis=set()
+#         vis.add(start)
+#         print(vis,end=' ')
+#         for nei in g[start]:
+#             if nei not in vis:
+#                 self.dfs(g, nei, vis)
+#         return vis
+#
+#     def build(self):
+#         a=int(input())
+#         b=int(input())
+#         g={}
+#         for i in range(a):
+#             g[i]=[]
+#         for _ in range(b):
+#             u,v=map(int,input().split())
+#             g[u].append(v)
+#             g[v].append(u)
+#         for node in g:
+#             print(f"{node} --> {g[node]}")
+#         return g
+# a=graph()
+# res=a.build()
+# a.bfs(res,0)
+# vis=set()
+# res1=a.dfs(res,0,vis)
+#print(*res1)
+
+#minimum spanning tree
+
+
+#shorest path
+
+
+
+# a=[1,2,3,4,5]
+# t=7
+# res={}
+# for i in range(len(a)):
+#     c=t-a[i]
+#     if c not in res:
+#         res[a[i]]=c
+#     if c in res:
+#         print("found",c,a[i],res)
+
+# a = [1, 2, 3, 4, 5]
+# t = 7
+# res = {}  # store value: index
+# for i in range(len(a)):
+#     c = t - a[i]
+#     if c in res:
+#         print(f"Found pair: ({c}, {a[i]})")  # print the pair that sums to t
+#         break
+#     res[a[i]] = i  # store current number for future lookups
+# print(res)
+
+#__________________________________________________________________________________________________________________
+#Binary Tree
+# class Tree:
+#     def __init__(self,val):
+#         self.val=val
+#         self.left=None
+#         self.right=None
+# def build_btree(arr):
+#     root=Tree(arr[0])
+#     queue=[root]
+#     i=1
+#     while i<len(arr):
+#         root1=queue.pop(0)
+#         if i<len(arr):
+#             root1.left=Tree(arr[i])
+#             queue.append(root1.left)
+#             i=i+1
+#         if i<len(arr):
+#             root1.right=Tree(arr[i])
+#             queue.append(root1.right)
+#             i=i+1
+#     return root
+# #pre order
+# def print1(res):
+#     if res!=None:
+#         print(res.val)
+#         print1(res.left)
+#         print1(res.right)
+# def isBalanced(root):
+#     def dfs(node):
+#         if not node:
+#             return 0  # height of an empty tree is 0
+#         left = dfs(node.left)
+#         if left == -1:
+#             return -1  # left subtree is unbalanced
+#         right = dfs(node.right)
+#         if right == -1:
+#             return -1  # right subtree is unbalanced
+#         if abs(left - right) > 1:
+#             return -1  # current node is unbalanced
+#         return 1 + max(left, right)  # return height of this node's subtree
+#
+#     return dfs(root) != -1
+#
+#
+#
+# def search(res,t):
+#     if res==None:
+#         return False
+#     if res.val==t:
+#         return True
+#     return search(res.left,t) or search(res.right,t)
+#
+# arr=list(map(int,input().split(' ')))
+# res=build_btree(arr)
+# print1(res)
+# res=isBalanced(res)
+# a=search(res,5)
+# print("found",a)
+
+#__________________________________________________________________________________________________________________
+
+
+
+#__________________________________________________________________________________________________________________
+#Tree
+# # Define the structure of a binary tree node
+# class TreeNode:
+#     def __init__(self, val: int = 0, left: Optional['TreeNode'] = None, right: Optional['TreeNode'] = None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+#
+# # Solution class with the hasPathSum method
+# class Solution:
+#     def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
+#         def path(node, current_sum):
+#             if not node:
+#                 return False
+#
+#             current_sum += node.val
+#
+#             # If it's a leaf node and the current sum equals the target sum
+#             if not node.left and not node.right:
+#                 return current_sum == targetSum
+#
+#             # Recursively check left and right subtrees
+#             return path(node.left, current_sum) or path(node.right, current_sum)
+#
+#         return path(root, 0)
+#
+# # Helper to build a sample binary tree:
+# #       5
+# #      / \
+# #     4   8
+# #    /   / \
+# #  11  13  4
+# #  / \       \
+# # 7   2       1
+#
+# # Construct the binary tree
+# root = TreeNode(5)
+# root.left = TreeNode(4)
+# root.right = TreeNode(8)
+#
+# root.left.left = TreeNode(11)
+# root.left.left.left = TreeNode(7)
+# root.left.left.right = TreeNode(2)
+#
+# root.right.left = TreeNode(13)
+# root.right.right = TreeNode(4)
+# root.right.right.right = TreeNode(1)
+#
+# # Create solution instance and call the method
+# sol = Solution()
+# targetSum = 22
+# print("Has path sum:", sol.hasPathSum(root, targetSum))  # Output: True
+
+
+#__________________________________________________________________________________________________________________
+#stack
+
+
+#__________________________________________________________________________________________________________________
+#queue
+
+
+#__________________________________________________________________________________________________________________
+#deque
+
+
+
+#__________________________________________________________________________________________________________________
+#permutation
+# def per(arr,t,ar,res):
+#     c = sum(ar)
+#     if c>t:
+#         return
+#     if c==t:
+#         res.add(tuple(ar))
+#         return
+#     for i in range(len(arr)):
+#             per(arr,t,ar+[arr[i]],res)
+#     return ar
+#
+# a=[1,2,3,4,5,6]
+# t=7
+# res=set()
+# res1=per(a,t,[],res)
+# print(res)
+#
+
+#__________________________________________________________________________________________________________________
+
+"""✅ Reason:
+Sets in Python can only store hashable (immutable) types, like:
+int, float, str
+tuple (if it only contains hashable elements)
+But:
+list is mutable and not hashable, so it cannot be added directly to a set."""
+#res.add(ar)  ---res.add(tuple(ar))
+
+# def find_combinations(arr, target, start=0, path=[], result=[]):
+#     if sum(path) == target:
+#         result.append(path)
+#         return
+#     if sum(path) > target:
+#         return
+#     for i in range(start, len(arr)):
+#         find_combinations(arr, target, i + 1, path + [arr[i]], result)
+#
+# a = [1, 2, 3, 4, 5, 6]
+# target = 7
+# result = []
+# find_combinations(a, target, result=result)
+# print("Combinations:")
+# for r in result:
+#     print(r)
+
+#__________________________________________________________________________________________________________________
+#permutation
+def find_permutations(arr, target, path, used, result):
+    if sum(path) == target:
+        result.append(path)
+        return
+    if sum(path) > target:
+        return
+    for i in range(len(arr)):
+        if not used[i]:
+            used[i] = True
+            find_permutations(arr, target, path + [arr[i]], used, result)
+            used[i] = False
+'''In permutations where order matters, you want:
+        if not used[i]:
+            used[i] = True
+            used[i] = False #used for stop repeatation
+[1, 2] ✅
+[2, 1] ✅
+But NOT [1, 1]'''
+
+a = [1, 2, 3, 4, 5, 6]
+target = 7
+result_perm = []
+used = [False] * len(a)
+find_permutations(a, target, [], used, result_perm)
+print("\nPermutations:")
+for r in result_perm:
+    print(r)
+#__________________________________________________________________________________________________________________
+
+#2X2 matrix
