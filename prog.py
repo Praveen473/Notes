@@ -107,7 +107,7 @@ from logging import exception
 #             if a[j] % 2 == 0:
 #                 a[i], a[j] = a[j], a[i]
 #                 break
-# print(*a)-shorthand
+# print(*a)#shorthand
 #-------------------------------------------------------------------------------------------------------------------
 #sorted odd even
 # a=[1,2,3,6,5]
@@ -139,6 +139,19 @@ from logging import exception
 #             return [num_map[complement], i]  # Step 5: If yes, return the stored index and current index
 #
 #         num_map[num] = i  # Step 6: Else, store the current number with its index in the dictionary
+
+
+#______________________________________________________________________________________
+
+# def find_pairs(arr, target):
+#     seen = set()   #___________________________________Important___________________________________________________
+#     for num in arr:
+#         if target - num in seen:
+#             print((num, target - num))
+#         seen.add(num)
+#
+# find_pairs([3, 7, 5, 1, 9, 2, 8], 10)
+
 #__________________________________________________________________________________________________________________
 #combination two sum
 #two combination important
@@ -446,8 +459,76 @@ from logging import exception
 
 #__________________________________________________________________________________________________________________
 #stack
+# class stack:
+#     def __init__(self):
+#         self.stack=[]
+#     def push(self,val):
+#         self.stack.append(val)
+#     def pop(self):
+#         if len(self.stack)!=0:
+#             self.stack.pop()
+#     def print_stack(self):
+#         print(self.stack)
+#
+#
+# c=stack()
+# c.push(10)
+# c.push(20)
+# c.push(30)
+# c.push(40)
+# c.print_stack()
+# c.pop()
+# c.print_stack()
+
+# class stack:
+#     def __init__(self):
+#         self.stack=[]
+#     def push(self,val):
+#         mapping = {')': '(', ']': '[', '}': '{'}
+#         if val in mapping.values():
+#             self.stack.append(val)
+#         else:
+#             if not self.stack or self.stack[-1] != mapping[val]:
+#                 print("not valid")
+#             self.stack.pop()
+#         print("valid")
+#
+# c=stack()
+# s="()[]{]"
+# for i in s:
+#     c.push(i)
 
 
+# mapping = {')': '(', ']': '[', '}': '{'}
+# print(mapping.keys())
+# print(mapping.values())
+#print(mapping[val])
+
+
+# def call(s):
+#     stack=[]
+#     operator=("+","-","/","*")
+#     for operation in s:
+#         if operation in operator:
+#             b=stack.pop()
+#             a=stack.pop()
+#             if operation == "+":
+#                 stack.append(a+b)
+#             if operation == "-":
+#                 stack.append(a-b)
+#             if operation == "*":
+#                 stack.append(a*b)
+#             if operation == "/":
+#                 stack.append(a//b)
+#         else:
+#
+#             stack.append(int(operation))
+#             print(stack)
+#     return stack
+#
+# tokens3 = ["10", "6", "9", "3", "/", "-", "*"]
+# res=call(tokens3)
+# print(res)
 #__________________________________________________________________________________________________________________
 #queue
 
@@ -506,33 +587,184 @@ list is mutable and not hashable, so it cannot be added directly to a set."""
 
 #__________________________________________________________________________________________________________________
 #permutation
-def find_permutations(arr, target, path, used, result):
-    if sum(path) == target:
-        result.append(path)
-        return
-    if sum(path) > target:
-        return
-    for i in range(len(arr)):
-        if not used[i]:
-            used[i] = True
-            find_permutations(arr, target, path + [arr[i]], used, result)
-            used[i] = False
-'''In permutations where order matters, you want:
-        if not used[i]:
-            used[i] = True
-            used[i] = False #used for stop repeatation
-[1, 2] ✅
-[2, 1] ✅
-But NOT [1, 1]'''
-
-a = [1, 2, 3, 4, 5, 6]
-target = 7
-result_perm = []
-used = [False] * len(a)
-find_permutations(a, target, [], used, result_perm)
-print("\nPermutations:")
-for r in result_perm:
-    print(r)
+# def find_permutations(arr, target, path, used, result):
+#     if sum(path) == target:
+#         result.append(path)
+#         return
+#     if sum(path) > target:
+#         return
+#     for i in range(len(arr)):
+#         if not used[i]:
+#             used[i] = True
+#             find_permutations(arr, target, path + [arr[i]], used, result)
+#             used[i] = False
+# '''In permutations where order matters, you want:
+#         if not used[i]:
+#             used[i] = True
+#             used[i] = False #used for stop repeatation
+# [1, 2] ✅
+# [2, 1] ✅
+# But NOT [1, 1]'''
+#
+# a = [1, 2, 3, 4, 5, 6]
+# target = 7
+# result_perm = []
+# used = [False] * len(a)
+# find_permutations(a, target, [], used, result_perm)
+# print("\nPermutations:")
+# for r in result_perm:
+#     print(r)
 #__________________________________________________________________________________________________________________
 
 #2X2 matrix
+# a=[]
+# for i in range(2):
+#     res=[]
+#     for j in range(2):
+#         res.append(j)
+#     a.append(res)
+# # print(*a)
+#
+#
+# s=["h","e","l","l","o"]
+# temp=0
+# i=0
+# j=len(s)-1
+# while(i<j):
+#     temp=s[j]
+#     s[j]=s[i]
+#     s[i]=temp
+#     i+=1
+#     j-=1
+# print(s)
+
+# nums1 = [4,9,5]
+# nums2 = [9,4,9,8,4]
+# res=[]
+# for i in range(len(nums1)):
+#     for j in range(len(nums2)):
+#         if nums1[i] == nums2[j]:
+#             res.append(nums1[i])
+#             nums2[j] = float('inf')
+#             break
+# print(res)
+
+#________________________________________________________________________________________________________________
+# res = ["compaign p1 4", "compaign 4", "compaign p1 4", "compaign p0 7"]
+#
+# def get_p_value(entry):
+#     parts = entry.split()
+#     for part in parts:
+#         if part.startswith('p') and part[1:].isdigit():
+#             return int(part[1:])  # Extract number after 'p'
+#     return float('inf')  # If no pN is found, put it at the end
+#
+# sorted_res = sorted(res, key=get_p_value)
+#
+# print(sorted_res)
+
+#________________________________________________________________________________________________________________
+
+
+
+
+
+
+# a=str(10)
+# print(a+str(0))
+# s = "aaaaabbc"
+# dict = {}
+# for i in s:
+#     dict[i] = dict.get(i,0)+1
+# c=float('inf')
+# print(c)
+
+
+#---------------------logic---------------------------
+# nums = [8,1,2,2,3]
+# a = sorted(nums)
+# dict = {}
+# for i, num in enumerate(a):
+#     if num not in dict:
+#         dict[num] = i
+# print(dict)
+# res = []
+# for i in nums:
+#     res.append(dict[i])
+# print(*res)
+
+
+# def calc(x):
+#     print("x value is",x)
+#     if x <= 1:
+#         return x
+#     return calc(x - 1) + calc(x - 2)
+# print("Number of ways:", calc(3))
+# F(0) = 0  for f(5)=f(4)+f(3)
+# F(1) = 1
+# F(2) = 1
+# F(3) = 2
+# F(4) = 3
+# F(5) = 5
+# F(6) = 8
+
+# res=["compaign p1 4","compaign 4","compaign p1 4","compaign p0 4"]
+# for i in res:
+#     c=i.split()
+#     if "p" not in c[1]:
+#         key1=int(c[1])
+#         print(key1)
+#
+# # print(*a)
+# # for i in res:
+# #     c=i.split()
+# #     print(c[1][0])
+
+# "compaign p1 4","compaign 4","compaign p1 4","compaign p0 4"
+
+#---------------------logic---------------------------
+#particulat sort
+# res = ["compaign p1 4", "compaign 4", "compaign p1 4", "compaign p0 4"]
+# def get_p_value(line):
+#     part=line.split()             #---------------------important---------------------------
+#     for i in part:
+#         if i.startswith('p') and i[1:].isdigit():
+#             return int(i[1:])
+#     return float('-inf')
+# sort1=sorted(res,key=get_p_value)
+# print(sort1)
+
+#------------------------------------Casa Retail AI-------------------------------------------------
+# def call(arr,work):
+#     arr1=sorted(arr)
+#     count=0
+#     non_time = 0
+#     for i in arr1:
+#         time = 0
+#         c=i.split()
+#         process=c[1][0]
+#         if process == "p":
+#             time=int(c[2])
+#             if time<work:
+#                 count+=1
+#             else:
+#                 count+=call1(time,work)
+#         else:
+#             non_time=non_time+int(c[1])
+#     return count+non_time
+#
+# def call1(time,work1):
+#     count=0
+#     while time>0:
+#         time=time-work1
+#         count+=1
+#     return count
+# a,b=map(int,input().split())
+# work=b*2
+# comp=[]
+# for i in range(a):
+#     comp.append(input())
+# res=call(comp,work)
+# print(res)
+
+#---------------------logic---------------------------
