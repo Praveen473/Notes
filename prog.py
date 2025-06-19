@@ -503,7 +503,12 @@ from logging import exception
 # print(mapping.keys())
 # print(mapping.values())
 #print(mapping[val])
-
+# mapping = {')': '(', ']': '[', '}': '{'}
+# for key in mapping:
+#     print(f"{key}{mapping[key]}")
+# print(mapping[")"])
+# val="("
+# print("".join([k for k,v in mapping.items() if v==val]))#----------imp------------******************************************
 
 # def call(s):
 #     stack=[]
@@ -722,17 +727,25 @@ list is mutable and not hashable, so it cannot be added directly to a set."""
 
 # "compaign p1 4","compaign 4","compaign p1 4","compaign p0 4"
 
+
+
+
+
 #---------------------logic---------------------------
 #particulat sort
 # res = ["compaign p1 4", "compaign 4", "compaign p1 4", "compaign p0 4"]
-# def get_p_value(line):
-#     part=line.split()             #---------------------important---------------------------
+# def get_p_value(k):
+#     part=k.split()             #---------------------important---------------------------
 #     for i in part:
 #         if i.startswith('p') and i[1:].isdigit():
 #             return int(i[1:])
 #     return float('-inf')
 # sort1=sorted(res,key=get_p_value)
 # print(sort1)
+
+
+
+
 
 #------------------------------------Casa Retail AI-------------------------------------------------
 # def call(arr,work):
@@ -767,4 +780,255 @@ list is mutable and not hashable, so it cannot be added directly to a set."""
 # res=call(comp,work)
 # print(res)
 
+#---------------------logic----------------------------------------------------------------------------------
+#using dict
+# res = ["compaign p1 4", "compaign 4", "compaign p1 4","compaign p1 7", "compaign p0 7","compaign 3"]
+# def call(arr,work):
+#     #arr1=sorted(arr)
+#     count=0
+#     non_time = 0
+#     dict={}
+#     v=0
+#     v_c=0
+#     for i in arr:
+#         time = 0
+#         c=i.split()
+#         process=c[1][0]
+#         if process == "p":
+#             if c[1] in dict:
+#                 v=int(dict[c[1]])
+#                 v+=int(c[2])
+#                 #print(c[1],v)
+#                 dict[c[1]]=str(v)
+#             else:
+#                 dict[c[1]]=c[2]
+#         else:
+#                 v_c+=int(c[1])
+#                 print(c[1], v_c)
+#                 dict["Non"] = str(v_c)
+#     res=0
+#     for key in sorted(dict):
+#         print(f"{key}: {dict[key]}")   #---------------------logic---------------------------#####################-
+#         res+=call1(int(dict[key]),work)
+#     print(res)
+# def call1(dic,work):
+#     c=0
+#     while(dic>0):
+#         dic=dic-work
+#         c+=1
+#     return c
+#
+# call(res,6)
 #---------------------logic---------------------------
+# res = ["compaign p1 4", "compaign 4", "compaign p1 4", "compaign p1 7", "compaign p0 7", "compaign 3"]
+#
+# def call(arr, work):
+#     count_dict = {}
+#     other_total = 0
+#     for i in arr:
+#         pat=i.split()
+#         if len(pat)==3:
+#             pt=pat[1]
+#             time=int(pat[2])
+#             count_dict[pt]=count_dict.get[pt,0]+time
+#         elif len(pat)==2:
+#             other_total+=int(pat[1])
+#             count_dict["non"]=other_total
+#
+#     # Sort dictionary by key
+#     for key in sorted(count_dict):
+#         print(f"{key}: {count_dict[key]}")
+#
+# call(res, 6)
+
+
+
+#------------------------------------Casa Retail AI-------------------------------------------------
+# s="12233"
+# dict={}
+# seen=set()
+# bool=True
+# for i in range(len(s)-1):
+#     if s[i] not in seen:
+#         if s[i]==s[i+1]:
+#             bool=False
+#             dict[s[i]]=dict.get(s[i],1)+1
+#         else:
+#             if bool==True:
+#                 dict[s[i]]=1
+#             seen.add(s[i])
+# print(dict)
+#------------------------------------Casa Retail AI-------------------------------------------------
+# nums=38
+# print(str(nums))
+# num = 38
+# c=str(num)
+# while num:
+#     count = 0
+#     for i in c:
+#         print(i)
+#         count += int(i)
+#         print(count)
+#     c = str(count)
+#     if len(c)==1:
+#         break
+# print(count)
+# res=[]
+# image = [[1,1,0],[1,0,1],[0,0,0]]
+# for i in image:
+#     i.reverse()
+#     res.append(i)
+#     #res.append(i[::-1])
+# print(*res)
+
+#--------------------------------------------------*************logic++++++++++++---------------------------------------
+# for i in combinations(nums,p):
+#     print(i)
+# for i in permutations(nums,p):
+#     print(i)
+
+# from itertools import permutations
+# from itertools import combinations
+# nums = [10,1,2,7,1,3]
+# p = 2
+# min1 = float('inf')
+# min2 = float('inf')
+# for i in combinations(nums, p):#--------*************logic++++++++++++---------
+#     num = abs(i[0] - i[1])
+#     print(num,i)
+#     if num < min2:
+#         if num < min1:
+#             min2 = min1
+#             min1 = num
+#         else:
+#             min2 = num
+#     print(min1,min2)
+# print(max(min1, min2))
+
+
+
+#-----------------------------------------------------------------------------------------
+# s = "abcde"
+# goal = "cdeab"
+# r = len(s)
+# res=s
+# ans=""
+# for i in range(len(s)):
+#     res= res[1:r + 1] + res[0]
+#     ans+=res
+#     print(res)
+#     if ans == goal:
+#         print("True")
+#     ans=""
+#-----------------------------------------------------------------------------------------
+#a=1,aa=27,ab=28,az=52,
+#stack = reverse (hello world)
+
+# class stack:
+#     def __init__(self):
+#         self.stack=[]
+# class st:
+#     def __init__(self,val):
+#         self.stack=val.stack
+#     def call(self,val) :
+#         self.stack.append(val)
+#     def reverse1(self):
+#         for i in range(len(self.stack)):
+#             rev=self.stack.pop()
+#             print(rev[::-1])
+# s=stack()
+# c=st(s)
+# for i in range(3):
+#     c.call(input())
+# c.reverse1()
+#-----------------------------------------------------------------------------------------
+#
+# s="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+# c=s.lower()
+# dict={}
+# for i in range(len(s)):
+#     dict[c[i]]=i+1
+# print(dict)
+# count=0
+# in1=input()
+# for i in range(len(in1)):
+#     if i<len(in1) and i+1<len(in1):
+#         if in1[i]=="a":
+#             val=i
+#             count=26+dict[in1[i+1]]
+#             break
+#     if i<1:
+#         count=26*dict[in1[i]]+dict[in1[i+1]]
+# print(count)
+
+#count=26*dict[in1[i]]+dict[in1[i+1]]
+#print(count)
+#-----------------------------------------------------------------------------------------
+# n=5
+# count = 0
+# for i in range(1,n + 1):
+#     for j in range(i + 1, n + 1):
+#         for k in range(j + 1, n + 1):
+#             print(i,j,k)
+#             if i ** 2 + j ** 2 == k ** 2:
+#                 count += 1
+
+# s = "aba"
+# print((s+s)[1:-1])
+# if s in (s+s)[1:-1]:
+#     print((s+s)[1:-1])
+# nums=[1,7,3,6,5,6]
+# l = 0
+# r = 0
+# for i in nums:
+#     r += i
+# print(r)
+# for i in nums:
+#     r -= i
+#     print("r",r)
+#     if l == r:
+#         print( i)
+#     l = l + i
+#     print("l",l)
+
+#-----------------------------------------------------------------------------------------
+# from itertools import permutations
+# s = "aacecaaa"
+# a = set(s)
+# output = ""
+# for j in range(1,len(s)):
+#     for i in permutations(a, j):
+#         temp = ''.join(i) + s
+#         #print(temp)
+#         c = temp[::-1]
+#         if temp == c:
+#             output = temp
+#         temp = ""
+# print(output)
+##-----------------------------------------------------------------------------------------
+# import bisect#--isect.insort() sorts lexicographically, like dictionary order: "a" < "aa" < "ab" < "b"-
+# -----------------------------------*************logic++++++++++++----
+# arr = []
+# bisect.insort(arr, 5)
+# bisect.insort(arr, 2)
+# bisect.insort(arr, 3)
+# print(arr[0])  # Output: [2, 3, 5]
+##-----------------------------------------------------------------------------------------
+import bisect
+# from itertools import product
+#
+# class Solution:
+#     def shortestPalindrome(self, s: str) -> str:
+#         if s == s[::-1]:
+#             return s
+#         output = []
+#         for length in range(1, len(s) + 1):
+#             for i in product(s, repeat=length):
+#                 temp = ''.join(i) + s
+#                 if temp == temp[::-1]:
+#                     output.append(temp)
+#         if output:
+#             return min(output, key=len)#------------------------------------*************logic++++++++++++----
+#         return None
+##-----------------------------------------------------------------------------------------
+
